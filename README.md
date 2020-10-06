@@ -2,24 +2,28 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
-## Meaningful resources
+## Demo
 
-npx -p @angular/cli@1.7.4 ng new angular5app
+![demogif](https://user-images.githubusercontent.com/56927809/95271024-7ae95180-0802-11eb-99d7-92627a6c0850.gif)
 
-npm i @angular/animations@5.2.5
+##### Meaningful resources & commands
 
-npm install --save @angular/material@5.2.5
+`$ npx -p @angular/cli@1.7.4 ng new angular5app`
 
-$ npm install --save @angular/cdk@5.2.5
+`$ npm install --save @angular/cdk@5.2.5`
+
+`$ npm install --save @angular/material@5.2.5`
+
+`$ npm i @angular/animations@5.2.5`
 
 
-https://angular.io/guide/forms-overview
+- [Angular Forms Guide](https://angular.io/guide/forms-overview)
+- [Material Angular](https://v5.material.angular.io/)
 
-https://getbootstrap.com/docs/4.3/components/forms/
+- [Bootstrap 4.3](https://getbootstrap.com/docs/4.3/components/forms/)
 
-https://v5.material.angular.io/
-
-https://google.github.io/material-design-icons/
+- [Material Icons](https://material.io/resources/icons/?style=baseline)
+- [Material Design](https://google.github.io/material-design-icons/)
 
 
 ## Development server
