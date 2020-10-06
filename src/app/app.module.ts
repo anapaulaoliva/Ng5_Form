@@ -7,14 +7,14 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { MatButtonModule, MatCheckboxModule, MatInputModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { InputErrorStateMatcherExampleComponent } from './input-error-state-matcher-example/input-error-state-matcher-example.component';
+//import { InputErrorStateMatcherExampleComponent } from './input-error-state-matcher-example/input-error-state-matcher-example.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ReactiveFormComponent,
-    InputErrorStateMatcherExampleComponent
+    //InputErrorStateMatcherExampleComponent
   ],
   imports: [
     BrowserModule,

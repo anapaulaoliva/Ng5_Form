@@ -4,187 +4,259 @@
   <h5>Register</h5>
 </div>
 <!-- Main Form -->
-<form [formGroup]="reactive-form">
+<form>
   <!-- Personal Info -->
-  <div class="form-group row">
-    <label for="first-name" class="col-sm-2 col-form-label">  
-      <i class="material-icons">face</i>
-    </label>
-    <div class="col-sm-10">
-      <input 
-        type="text"
-        class="form-control"
-        id="first-name"
-        placeholder="First Name"
-        formControlName="first-name"
-        required
-      />
-    </div>
-  </div>
 
-  <div class="form-group row">
-    <label for="last-name" class="col-sm-2 col-form-label">
-      <i class="material-icons">face</i>
-    </label>
-    <div class="col-sm-10">
-      <input 
-        type="text"
-        class="form-control"
-        id="last-name"
-        placeholder="Last Name"
-        formControlName="last-name"
-        required
-      />
-    </div>
-  </div>
+    <!-- First Name -->
+    <div class="form-group row">
+      <label for="first-name" class="col-sm-2 col-form-label">  
+        <i class="material-icons">face</i>
+      </label>
+      <div class="col-sm-10">
+        <input 
+          type="text"
+          class="form-control"
+          id="first-name"
+          placeholder="First Name"
+          name="first-name"
+          ngModel
+          #firstName="ngModel"
+          (change)="log(firstName)"
+        />
+        <!-- Fn Validation -->
+        <div *ngIf="firstName.touched">
+          <small id="first-name-help-block" class="form-text text-muted">
+            First Name is required.
+          </small>
+        </div>
 
-  <div class="form-group row">
-    <label for="email" class="col-sm-2 col-form-label">
-      <i class="material-icons">mail</i>
-    </label>
-    <div class="col-sm-10">
-      <input 
-      type="email"
-      class="form-control"
-      id="email"
-      placeholder="Email"
-      formControlName="email"
-      required
-      >
+      </div>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <label for="password" class="col-sm-2 col-form-label">
-      <i class="material-icons-outlined">lock</i>
-    </label>
-    <div class="col-sm-10">
-      <input 
-        type="password"
+    <!-- Last Name-->
+    <div class="form-group row">
+      <label for="last-name" class="col-sm-2 col-form-label">
+        <i class="material-icons">face</i>
+      </label>
+      <div class="col-sm-10">
+        <input 
+          type="text"
+          class="form-control"
+          id="last-name"
+          placeholder="Last Name"
+          name="last-name"
+          ngModel
+          #lastName="ngModel"
+          (change)="log(lastName)"
+        />
+
+        <!-- Ln Validation -->
+        <div *ngIf="lastName.touched">
+          <small id="last-name-help-block" class="form-text text-muted">
+            Last Name is required.
+          </small>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group row">
+      <label for="email" class="col-sm-2 col-form-label">
+        <i class="material-icons">mail</i>
+      </label>
+      <div class="col-sm-10">
+        <input 
+        type="email"
         class="form-control"
-        id="password"
-        placeholder="Password"
-        formControlName="password"
-        required
+        id="email"
+        placeholder="Email"
+        name="email"
+        ngModel
+        #email="ngModel"
+        (change)="log(email)"
+        pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
         >
-        <small id="passwordHelpBlock" class="form-text text-muted">
-          Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+        <small id="email-help-block" class="form-text text-muted">
+          Email is required.
         </small>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <label for="check-password" class="col-sm-2 col-form-label">
-      <i class="material-icons-outlined">lock</i>
-    </label>
-    <div class="col-sm-10">
-      <input 
-        type="password"
-        class="form-control"
-        id="check-password"
-        placeholder="Confirm Password"
-        formControlName="check-password"
-        required
+    <!-- Password -->
+    <div class="form-group row">
+      <label for="password" class="col-sm-2 col-form-label">
+        <i class="material-icons-outlined">lock</i>
+      </label>
+      <div class="col-sm-10">
+        <input 
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Password"
+          name="password"
+          ngModel
+          #password="ngModel"
+          (change)="log(password)"
+          >
+          <small id="password-help-block" class="form-text text-muted">
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+          </small>
+      </div>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="form-group row">
+      <label for="check-password" class="col-sm-2 col-form-label">
+        <i class="material-icons-outlined">lock</i>
+      </label>
+      <div class="col-sm-10">
+        <input 
+          type="password"
+          class="form-control"
+          id="check-password"
+          placeholder="Confirm Password"
+          name="confirm-password"
+          ngModel
+          #confirmPassword="ngModel"
+          (change)="log(confirmPassword)"
+          >
+          <small id="confirm-password-help-block" class="form-text text-muted">
+            Please confirm your password.
+          </small>
+      </div>
+    </div>
+
+    <!-- Country -->
+    <div class="form-group row">
+      <label for="country" class="col-sm-2 col-form-label">
+        <i class="material-icons">face</i>
+      </label>
+      <div class="col-sm-10">
+        <input 
+          type="text"
+          class="form-control"
+          id="country"
+          placeholder="Country of location"
+          name="country"
+          ngModel
+          #country="ngModel"
+          (change)="log(country)"
         >
+        <small id="country-help-block" class="form-text text-muted">
+          Please add your country location.
+        </small>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <label for="country" class="col-sm-2 col-form-label">
-      <i class="material-icons">face</i>
-    </label>
-    <div class="col-sm-10">
+    <!-- Company Name -->
+    <div class="form-group row">
+      <label for="company-name" class="col-sm-2 col-form-label">
+        <i class="material-icons">store_mall_directory</i>
+      </label>
+      <div class="col-sm-10">
+        <input 
+          type="text"
+          class="form-control"
+          id="company-name"
+          placeholder="Company name"
+          name="company-name"
+          ngModel
+          #companyName="ngModel"
+          (change)="log(companyName)"
+          >
+          <small id="company-name-help-block" class="form-text text-muted">
+            Company name is required.
+          </small>
+      </div>
+    </div>
+
+    <!-- Company Website -->
+    <div class="form-group row">
+      <label for="company-web" class="col-sm-2 col-form-label">
+        <i class="material-icons">face</i>
+      </label>
+      <div class="col-sm-10">
+        <input 
+          type="text"
+          class="form-control"
+          id="company-web"
+          placeholder="Company Website"
+          name="company-web"
+          ngModel
+          #companyWeb="ngModel"
+          (change)="log(companyWeb)"
+          >
+          <small id="company-website-help-block" class="form-text text-muted">
+            Company website is required.
+          </small>
+      </div>
+    </div>
+
+    <!-- Innovator Type -->
+    <div class="form-group row">
+      <label for="innovator-type" class="col-sm-2 col-form-label">
+        <i class="material-icons">face</i>
+      </label>
+      <div class="col-sm-10">
+        <select 
+          name="innovator-type"
+          id="innovator-type"
+          class="form-control"
+          name="innovator-type"
+          ngModel
+          #innovatorType="ngModel"
+          (change)="log(innovatorType)"
+        >
+          <option disabled selected value>
+            Innovator Type
+          </option>
+          <option value="nice">A nice one!</option>
+          <option value="cool">A cool one!</option>
+          <option value="great">A great one!</option>
+        </select>
+        <small id="selector-help-block" class="form-text text-muted">
+          Choose the option that suits best for you.
+        </small>
+      </div>
+    </div>
+
+    <!-- Age Check -->
+    <div class="form-group form-check">
       <input 
-        type="text"
-        class="form-control"
-        id="country"
-        placeholder="Country of location"
-        formControlName="country"
-        required
+        type="checkbox" 
+        class="form-check-input" 
+        id="age-check"
+        name="age-check"
+        ngModel
+        #ageCheck="ngModel"
+        (change)="log(ageCheck)"
       >
+      <label class="form-age-check" for="age-check">
+        Age acknowledgment for innovation submission. Check to confirm that you are at least 18 years of age.
+      </label>
+      <small id="age-check-help-block" class="form-text text-muted">
+        +18 check must be confirmed.
+      </small>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <label for="company-name" class="col-sm-2 col-form-label">
-      <i class="material-icons">store_mall_directory</i>
-
-    </label>
-    <div class="col-sm-10">
-      <input 
-        type="text"
-        class="form-control"
-        id="company-name"
-        placeholder="Company name"
-        formControlName="company"
-        required
-        >
+    <!-- Privacy Policy -->
+    <div>
+      <span>Please review our 
+        <a href="http://www.privacy-policy.com">Privacy Policy</a> 
+        to understand how we will use your information. 
+      </span>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <label for="company-web" class="col-sm-2 col-form-label">
-      <i class="material-icons">face</i>
-    </label>
-    <div class="col-sm-10">
-      <input 
-        type="text"
-        class="form-control"
-        id="company-web"
-        placeholder="Company Website"
-        formControlName="company-web"
-        required
-        >
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="innovator-type" class="col-sm-2 col-form-label">
-      <i class="material-icons">face</i>
-    </label>
-    <div class="col-sm-10">
-      <select 
-        name="innovator-type"
-        id="innovator-type"
-        class="form-control"
-        formControlName="innovator-type"
-        required
-
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button 
+        type="submit" 
+        class="shadow-p3 btn text-white btn-warning rounded-pill"
       >
-        <option disabled selected value>
-          Innovator Type
-        </option>
-        <option value="nice">Nice</option>
-        <option value="cool">Cool</option>
-        <option value="great">Great</option>
-      </select>
+        LET'S GO
+      </button>
     </div>
-  </div>
 
-  <div class="form-group form-check">
-    <input 
-      type="checkbox" 
-      class="form-check-input" 
-      id="age-check">
-    <label class="form-age-check" for="age-check">
-      Age acknowledgment for innovation submission. Check to confirm that you are at least 18 years of age.
-    </label>
-  </div>
-
-  <div>
-    <span>Please review our 
-      <a href="http://www.privacy-policy.com">Privacy Policy</a> 
-      to understand how we will use your information. 
-    </span>
-  </div>
-  <div class="text-center">
-    <button 
-      type="submit" 
-      class="shadow-p3 btn text-white btn-warning rounded-pill"
-    >
-      LET'S GO
-    </button>
-  </div>
-  
 </form>
 </div>
