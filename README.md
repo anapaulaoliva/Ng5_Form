@@ -1,12 +1,10 @@
 # Angular5-Form
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
-
 ## Demo
 
 ![demogif](https://user-images.githubusercontent.com/56927809/95271024-7ae95180-0802-11eb-99d7-92627a6c0850.gif)
 
-##### Meaningful resources & commands
+### Meaningful resources & commands
 
 `$ npx -p @angular/cli@1.7.4 ng new angular5app`
 
