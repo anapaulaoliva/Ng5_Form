@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
+//import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,10 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    //MatButtonModule,
+    //MatCheckboxModule,
+    //MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
