@@ -1,8 +1,26 @@
-# Angular5app
+# Angular5-Form
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
+## Meaningful resources
+
 npx -p @angular/cli@1.7.4 ng new angular5app
+
+npm i @angular/animations@5.2.5
+
+npm install --save @angular/material@5.2.5
+
+$ npm install --save @angular/cdk@5.2.5
+
+
+https://angular.io/guide/forms-overview
+
+https://getbootstrap.com/docs/4.3/components/forms/
+
+https://v5.material.angular.io/
+
+https://google.github.io/material-design-icons/
+
 
 ## Development server
 
