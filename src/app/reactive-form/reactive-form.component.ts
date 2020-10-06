@@ -26,4 +26,10 @@ export class ReactiveFormComponent implements OnInit {
     })
   }
 
+  //function to call from the submit button
+  submitHandler(){
+    console.log(this.reactiveForm);
+    
+  }
+
 }

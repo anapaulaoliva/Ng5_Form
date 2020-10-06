@@ -16,7 +16,9 @@
               type="text"
               class="form-control"
               id="first-name"
-              placeholder="First Name">
+              placeholder="First Name"
+              formControlName="first-name"
+            >
           </div>
         </div>
 
@@ -27,7 +29,9 @@
               type="text"
               class="form-control"
               id="last-name"
-              placeholder="Last Name">
+              placeholder="Last Name"
+              formControlName="last-name"
+              >
           </div>
         </div>
 
@@ -38,7 +42,9 @@
               type="email"
               class="form-control"
               id="email"
-              placeholder="Email">
+              placeholder="Email"
+              formControlName="email"
+              >
           </div>
         </div>
 
@@ -49,7 +55,9 @@
               type="password"
               class="form-control"
               id="password"
-              placeholder="Password">
+              placeholder="Password"
+              formControlName="password"
+              >
           </div>
         </div>
 
@@ -60,7 +68,9 @@
               type="password"
               class="form-control"
               id="check-password"
-              placeholder="Confirm Password">
+              placeholder="Confirm Password"
+              formControlName="check-password"
+              >
           </div>
         </div>
 
@@ -71,7 +81,9 @@
               type="text"
               class="form-control"
               id="country"
-              placeholder="Country of location">
+              placeholder="Country of location"
+              formControlName="country"
+              >
           </div>
         </div>
 
@@ -82,7 +94,9 @@
               type="text"
               class="form-control"
               id="company-name"
-              placeholder="Company name">
+              placeholder="Company name"
+              formControlName="company"
+              >
           </div>
         </div>
 
@@ -93,7 +107,9 @@
               type="text"
               class="form-control"
               id="company-web"
-              placeholder="Company Website">
+              placeholder="Company Website"
+              formControlName="company-web"
+              >
           </div>
         </div>
 
@@ -104,6 +120,8 @@
               name="innovator-type"
               id="innovator-type"
               class="form-control"
+              formControlName="innovator-type"
+
             >
               <option disabled selected value>Innovator Type</option>
               <option value="nice">Nice</option>
@@ -118,7 +136,8 @@
             type="checkbox" 
             id="age-check" 
             name="age-check" 
-            value="checked" 
+            value="checked"
+            formControlName="age-check" 
             >
           <label for="age-check">
             Age acknowledgment for innovation submission. 
@@ -136,6 +155,7 @@
       <div class="text-center">
           <button 
             type="submit"
+            (click)="submitHandler()"
             >
             LET'S GO
           </button>
