@@ -6,12 +6,16 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.css']
 })
-export class ReactiveFormComponent implements OnInit {
+export class ReactiveFormComponent {
 
-  reactiveForm: FormGroup;
-  constructor(private _fb: FormBuilder) { }
+  log(x){ console.log(x) };
+  
 
-  ngOnInit() {
+
+  //reactiveForm: FormGroup;
+  //constructor(private _fb: FormBuilder) { }
+
+  /*ngOnInit() {
     this.reactiveForm = this._fb.group({
       firstName: [],
       lastName: [],
@@ -24,12 +28,12 @@ export class ReactiveFormComponent implements OnInit {
       innovatorType: [],
       ageCheck: []
     })
-  }
+  }*/
 
   //function to call from the submit button
-  submitHandler(){
-    console.log(this.reactiveForm);
+  //submitHandler(){
+    //console.log(this.reactiveForm);
     
   }
 
-}
+
