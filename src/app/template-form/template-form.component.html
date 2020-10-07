@@ -4,7 +4,7 @@
   <h5>Register</h5>
 </div>
 <!-- Main Form -->
-<form #myForm="ngForm" >
+<form #myForm="ngForm" (ngSubmit)="myForm.reset()" >
   <!-- Personal Info -->
 
     <!-- Name Group Form -->
@@ -136,6 +136,12 @@
 
         <!-- Password Validation -->
         <div>
+          <div class="alert alert-danger" *ngIf="password.touched && !password.dirty">
+            <small id="password-help-block" class="form-text font-weight-bold text-danger">
+              <span class="material-icons">error_outline</span>
+              Password is required.
+            </small>
+          </div>
           <div class="alert alert-danger" *ngIf="!password.pristine && password.errors">
             <small id="password-help-block" class="form-text font-weight-bold text-danger">
               <span class="material-icons">error_outline</span>
