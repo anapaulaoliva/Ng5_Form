@@ -4,91 +4,96 @@
   <h5>Register</h5>
 </div>
 <!-- Main Form -->
-<form>
+<form #myForm="ngForm">
   <!-- Personal Info -->
 
-    <!-- First Name -->
-    <div class="form-group row">
-      <label for="first-name" class="col-sm-2 col-form-label">  
-        <i class="material-icons">face</i>
-      </label>
-      <div class="col-sm-10">
-        <input 
-          type="text"
-          class="form-control"
-          id="first-name"
-          placeholder="First Name"
-          name="first-name"
-          ngModel
-          #firstName="ngModel"
-          (change)="log(firstName)"
-          minlength="3"
-          maxlength="10"
-          pattern="^[a-zA-Z]"
-          required
-        />
-        <!-- Fn Validation -->
-        <div *ngIf="firstName.touched && firstName.pristine">
-          <div *ngIf="firstName.errors.required">
-            <small class="form-text text-danger">
-              First Name is required.
-            </small>
-          </div>
-          <div *ngIf="firstName.errors.minlength">
-            <small class="form-text text-danger">
-              First Name should be of at least {{ firstName.errors.minlength.requiredLength }} characters.
-            </small>
-          </div>
-          <div *ngIf="firstName.errors.pattern">
-            <small class="form-text text-danger">
-              First Name should contain only letters.
-            </small>
-          </div>
-        </div>
+    <!-- Name Group Form -->
+    <div ngModelGroup="name">
 
+      <!-- First Name -->
+      <div class="form-group row">
+        <label for="first-name" class="col-sm-2 col-form-label">  
+          <i class="material-icons">face</i>
+        </label>
+        <div class="col-sm-10">
+          <input 
+            type="text"
+            class="form-control"
+            id="first-name"
+            placeholder="First Name"
+            name="first-name"
+            ngModel
+            #firstName="ngModel"
+            (change)="log(firstName)"
+            minlength="3"
+            maxlength="10"
+            pattern="^[a-zA-Z]"
+            required
+          />
+          
+          <!-- Fn Validation -->
+          <div *ngIf="firstName.touched && firstName.pristine">
+            <div *ngIf="firstName.errors.required">
+              <small class="form-text text-danger">
+                First Name is required.
+              </small>
+            </div>
+            <div *ngIf="firstName.errors.minlength">
+              <small class="form-text text-danger">
+                First Name should be of at least {{ firstName.errors.minlength.requiredLength }} characters.
+              </small>
+            </div>
+            <div *ngIf="firstName.errors.pattern">
+              <small class="form-text text-danger">
+                First Name should contain only letters.
+              </small>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
 
-    <!-- Last Name-->
-    <div class="form-group row">
-      <label for="last-name" class="col-sm-2 col-form-label">
-        <i class="material-icons">face</i>
-      </label>
-      <div class="col-sm-10">
-        <input 
-          type="text"
-          class="form-control"
-          id="last-name"
-          placeholder="Last Name"
-          name="last-name"
-          ngModel
-          #lastName="ngModel"
-          (change)="log(lastName)"
-          minlength="3"
-          maxlength="10"
-          pattern="^[a-zA-Z]"
-          required
-        />
+      <!-- Last Name-->
+      <div class="form-group row">
+        <label for="last-name" class="col-sm-2 col-form-label">
+          <i class="material-icons">face</i>
+        </label>
+        <div class="col-sm-10">
+          <input 
+            type="text"
+            class="form-control"
+            id="last-name"
+            placeholder="Last Name"
+            name="last-name"
+            ngModel
+            #lastName="ngModel"
+            (change)="log(lastName)"
+            minlength="3"
+            maxlength="10"
+            pattern="^[a-zA-Z]"
+            required
+          />
 
-        <!-- Ln Validation -->
-        <div *ngIf="lastName.touched && lastName.pristine">
-          <div *ngIf="lastName.errors.required">
-            <small id="last-name-help-block" class="form-text text-danger">
-              Last Name is required.
-            </small>
+          <!-- Ln Validation -->
+          <div *ngIf="lastName.touched && lastName.pristine">
+            <div *ngIf="lastName.errors.required">
+              <small id="last-name-help-block" class="form-text text-danger">
+                Last Name is required.
+              </small>
+            </div>
+            <div *ngIf="lastName.errors.minlength">
+              <small id="last-name-help-block" class="form-text text-danger">
+                Last Name should be at least {{ lastName.error.minlength.requiredLength }} characters long.
+              </small>
+            </div>
+            <div *ngIf="lastName.errors.pattern">
+              <small  id="last-name-help-block" class="form-text text-danger">
+                Last Name must containg only letters.
+              </small>
+            </div>
           </div>
-          <div *ngIf="lastName.errors.minlength">
-            <small id="last-name-help-block" class="form-text text-danger">
-              Last Name should be at least {{ lastName.error.minlength.requiredLength }} characters long.
-            </small>
-          </div>
-          <div *ngIf="lastName.errors.pattern">
-            <small  id="last-name-help-block" class="form-text text-danger">
-              Last Name must containg only letters.
-            </small>
-          </div>
+
         </div>
-
       </div>
     </div>
 
@@ -182,7 +187,7 @@
           required
         >
 
-        <!-- Confirm Psw Validation -->
+        <!-- Confirm Password Validation -->
         <div class="alert alert-danger" *ngIf="confirmPassword.touched && confirmPassword.pristine">
           <div *ngIf="confirmPassword.errors.required">
             <small id="confirm-password-help-block" class="form-text font-weight-bold text-danger">
@@ -222,58 +227,63 @@
       </div>
     </div>
 
-    <!-- Company Name -->
-    <div class="form-group row">
-      <label for="company-name" class="col-sm-2 col-form-label">
-        <i class="material-icons">store_mall_directory</i>
-      </label>
-      <div class="col-sm-10">
-        <input 
-          type="text"
-          class="form-control"
-          id="company-name"
-          placeholder="Company name"
-          name="company-name"
-          ngModel
-          #companyName="ngModel"
-          (change)="log(companyName)"
-        >
+    <!-- Company Group Form -->
+    <div ngModelGroup="company">
+      <div class="form-group row">
 
-        <!-- Company Name Validation -->
-        <div *ngIf="companyName.touched && companyName.pristine">
-          <small id="company-name-help-block" class="form-text text-danger">
-            Company name is required.
-          </small>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Company Website -->
-    <div class="form-group row">
-      <label for="company-web" class="col-sm-2 col-form-label">
-        <i class="material-icons">face</i>
-      </label>
-      <div class="col-sm-10">
-        <input 
-          type="text"
-          class="form-control"
-          id="company-web"
-          placeholder="Company Website"
-          name="company-web"
-          ngModel
-          #companyWeb="ngModel"
-          (change)="log(companyWeb)"
+        <!-- Company Name -->
+        <label for="company-name" class="col-sm-2 col-form-label">
+          <i class="material-icons">store_mall_directory</i>
+        </label>
+        <div class="col-sm-10">
+          <input 
+            type="text"
+            class="form-control"
+            id="company-name"
+            placeholder="Company name"
+            name="company-name"
+            ngModel
+            #companyName="ngModel"
+            (change)="log(companyName)"
           >
 
-        <!-- Company Website Validation -->
-        <div *ngIf="companyWeb.touched && companyWeb.pristine">
-          <small id="company-website-help-block" class="form-text text-danger">
-            Company website is required.
-          </small>
-        </div>
+          <!-- Company Name Validation -->
+          <div *ngIf="companyName.touched && companyName.pristine">
+            <small id="company-name-help-block" class="form-text text-danger">
+              Company name is required.
+            </small>
+          </div>
 
+        </div>
       </div>
+
+      <!-- Company Website -->
+      <div class="form-group row">
+        <label for="company-web" class="col-sm-2 col-form-label">
+          <i class="material-icons">face</i>
+        </label>
+        <div class="col-sm-10">
+          <input 
+            type="text"
+            class="form-control"
+            id="company-web"
+            placeholder="Company Website"
+            name="company-web"
+            ngModel
+            #companyWeb="ngModel"
+            (change)="log(companyWeb)"
+            >
+
+          <!-- Company Website Validation -->
+          <div *ngIf="companyWeb.touched && companyWeb.pristine">
+            <small id="company-website-help-block" class="form-text text-danger">
+              Company website is required.
+            </small>
+          </div>
+
+        </div>
+      </div>
+      
     </div>
 
     <!-- Innovator Type -->
@@ -340,6 +350,7 @@
       <button 
         type="submit" 
         class="shadow-p3 btn text-white btn-warning rounded-pill"
+        (click)="submitHandler(myForm)"
       >
         LET'S GO
       </button>
