@@ -15,6 +15,5 @@ export class TemplateFormComponent implements OnInit {
   submitHandler(myForm) {
     console.log('Input Values are: ',myForm.value)
   }
-  }
-
+}
 

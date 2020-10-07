@@ -4,7 +4,7 @@
   <h5>Register</h5>
 </div>
 <!-- Main Form -->
-<form #myForm="ngForm" (submit)="log(myForm.value)">
+<form #myForm="ngForm" >
   <!-- Personal Info -->
 
     <!-- Name Group Form -->
@@ -25,26 +25,20 @@
             ngModel
             #firstName="ngModel"
             (change)="log(firstName)"
-            pattern="^[\w]"
             minlength="2"
             required
           />
 
           <!-- Fn Validation -->
           <div>
-            <div *ngIf="firstName.touched && firstName.errors.required">
+            <div *ngIf="firstName.touched && !firstName.valid">
               <small class="form-text text-danger">
                 First Name is required.
               </small>
             </div>
-            <div *ngIf="firstName.errors.minlength">
+            <div *ngIf="!firstName.valid">
               <small class="form-text text-danger">
-                First Name should be of at least {{ firstName.errors.minlength.requiredLength }} characters.
-              </small>
-            </div>
-            <div *ngIf="firstName.errors.pattern">
-              <small class="form-text text-danger">
-                First Name should contain only letters.
+                First Name should be of at least 2 characters.
               </small>
             </div>
           </div>
@@ -68,25 +62,19 @@
             #lastName="ngModel"
             (change)="log(lastName)"
             minlength="3"
-            pattern="^[A-Za-z]"
             required
           />
 
           <!-- Ln Validation -->
           <div>
-            <div *ngIf="lastName.touched && lastName.errors.required">
+            <div *ngIf="lastName.touched && !lastName.valid">
               <small id="last-name-help-block" class="form-text text-danger">
                 Last Name is required.
               </small>
             </div>
-            <div *ngIf="lastName.errors.minlength">
+            <div *ngIf="!lastName.valid">
               <small id="last-name-help-block" class="form-text text-danger">
-                Last Name should be at least {{ lastName.errors.minlength.requiredLength }} characters long.
-              </small>
-            </div>
-            <div *ngIf="lastName.errors.pattern">
-              <small  id="last-name-help-block" class="form-text text-danger">
-                Last Name must containg only letters.
+                Last Name should be at least 3 characters long.
               </small>
             </div>
           </div>
@@ -111,22 +99,15 @@
           ngModel
           #email="ngModel"
           (change)="log(email)"
-          pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
           required
         >
         
         <!-- Email Validation -->
         <div>
-          <div class="alert alert-danger" *ngIf="email.touched && email.errors.required">
+          <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
             <small class="form-text font-weight-bold text-danger">
               <span class="material-icons">error_outline</span>
               Email is required.
-            </small>
-          </div>
-          <div class="alert alert-danger" *ngIf="email.errors.pattern">
-            <small class="form-text font-weight-bold text-danger">
-              <span class="material-icons">error_outline</span>
-              Please add a valid domain email.
             </small>
           </div>
         </div>
@@ -150,16 +131,17 @@
           #password="ngModel"
           (change)="log(password)"
           minlength="8"
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
           required
         >
 
         <!-- Password Validation -->
-        <div class="alert alert-danger" *ngIf="password.touched && password.errors.required || password.errors.minlength">
-          <small id="password-help-block" class="form-text font-weight-bold text-danger">
-            <span class="material-icons">error_outline</span>
-            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-          </small>
+        <div>
+          <div class="alert alert-danger" *ngIf="!password.pristine && password.errors">
+            <small id="password-help-block" class="form-text font-weight-bold text-danger">
+              <span class="material-icons">error_outline</span>
+              Your password must be 8-20 characters long.
+            </small>
+          </div>
         </div>
 
       </div>
@@ -182,19 +164,18 @@
           #confirmPassword="ngModel"
           (change)="log(confirmPassword)"
           minlength="8"
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
           required
         >
 
         <!-- Confirm Password Validation -->
         <div >
-          <div class="alert alert-danger" *ngIf="confirmPassword.touched && confirmPassword.errors.required">
+          <div class="alert alert-danger" *ngIf="confirmPassword.touched && !confirmPassword.valid">
             <small id="confirm-password-help-block" class="form-text font-weight-bold text-danger">
               <span class="material-icons">error_outline</span>
               Please confirm your password.
             </small>
           </div>
-          <div class="alert alert-danger" *ngIf="confirmPassword.errors.minlength">
+          <div class="alert alert-danger" *ngIf="!confirmPassword.pristine && confirmPassword.errors">
             <small id="confirm-password-help-block" class="form-text font-weight-bold text-danger">
               <span class="material-icons">error_outline</span>
                 Password should match.
@@ -279,8 +260,7 @@
             ngModel
             #companyWeb="ngModel"
             (change)="log(companyWeb)"
-            pattern="https?://.+"
-            >
+          >
 
           <!-- Company Website Validation -->
           <div *ngIf="companyWeb.touched && companyWeb.pristine">
@@ -363,7 +343,7 @@
       >
         LET'S GO
       </button>
-      <div class="alert alert-warning text-center" *ngIf="myForm.touched && !myForm.valid">
+      <div class="alert alert-warning text-center" *ngIf="myForm.touched && !myForm.valid && !myForm.submitted">
         <span class="material-icons">error_outline</span>
         Please fill correctly this form to submit your answers.
       </div>
