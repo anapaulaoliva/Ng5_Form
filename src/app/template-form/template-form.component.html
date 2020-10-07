@@ -24,17 +24,15 @@
             name="first-name"
             ngModel
             #firstName="ngModel"
-            [(ngModel)]="user.fname"
             (change)="log(firstName)"
-            minlength="3"
-            maxlength="10"
-            pattern="^[a-zA-Z]"
+            pattern="[\w]"
+            minlength="2"
             required
           />
 
           <!-- Fn Validation -->
-          <div *ngIf="firstName.touched && firstName.pristine">
-            <div *ngIf="firstName.errors.required">
+          <div>
+            <div *ngIf="firstName.touched && firstName.errors.required">
               <small class="form-text text-danger">
                 First Name is required.
               </small>
@@ -68,24 +66,22 @@
             name="last-name"
             ngModel
             #lastName="ngModel"
-            [(ngModel)]="user.lname"
             (change)="log(lastName)"
             minlength="3"
-            maxlength="10"
-            pattern="^[a-zA-Z]"
+            pattern="[A-Za-z]"
             required
           />
 
           <!-- Ln Validation -->
-          <div *ngIf="lastName.touched && lastName.pristine">
-            <div *ngIf="lastName.errors.required">
+          <div>
+            <div *ngIf="lastName.touched && lastName.errors.required">
               <small id="last-name-help-block" class="form-text text-danger">
                 Last Name is required.
               </small>
             </div>
             <div *ngIf="lastName.errors.minlength">
               <small id="last-name-help-block" class="form-text text-danger">
-                Last Name should be at least {{ lastName.error.minlength.requiredLength }} characters long.
+                Last Name should be at least {{ lastName.errors.minlength.requiredLength }} characters long.
               </small>
             </div>
             <div *ngIf="lastName.errors.pattern">
@@ -120,15 +116,16 @@
         >
         
         <!-- Email Validation -->
-        <div class="alert alert-danger" *ngIf="email.touched && email.pristine">
-          <div *ngIf="email.errors.required">
+        <div>
+          <div class="alert alert-danger" *ngIf="email.touched && email.errors.required">
             <small class="form-text font-weight-bold text-danger">
               <span class="material-icons">error_outline</span>
               Email is required.
             </small>
           </div>
-          <div *ngIf="email.errors.pattern">
+          <div class="alert alert-danger" *ngIf="email.errors.pattern">
             <small class="form-text font-weight-bold text-danger">
+              <span class="material-icons">error_outline</span>
               Please add a valid domain email.
             </small>
           </div>
@@ -153,17 +150,16 @@
           #password="ngModel"
           (change)="log(password)"
           minlength="8"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
           required
         >
 
         <!-- Password Validation -->
-        <div class="alert alert-danger" *ngIf="password.touched && password.pristine">
-          <div *ngIf="password.errors.required">
-            <small id="password-help-block" class="form-text font-weight-bold text-danger">
-              <span class="material-icons">error_outline</span>
-              Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-            </small>
-          </div>
+        <div class="alert alert-danger" *ngIf="password.touched && password.errors.required || password.errors.minlength">
+          <small id="password-help-block" class="form-text font-weight-bold text-danger">
+            <span class="material-icons">error_outline</span>
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+          </small>
         </div>
 
       </div>
@@ -186,17 +182,26 @@
           #confirmPassword="ngModel"
           (change)="log(confirmPassword)"
           minlength="8"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
           required
         >
 
         <!-- Confirm Password Validation -->
-        <div class="alert alert-danger" *ngIf="confirmPassword.touched && confirmPassword.pristine">
-          <div *ngIf="confirmPassword.errors.required">
+        <div >
+          <div class="alert alert-danger" *ngIf="confirmPassword.touched && confirmPassword.errors.required">
             <small id="confirm-password-help-block" class="form-text font-weight-bold text-danger">
               <span class="material-icons">error_outline</span>
               Please confirm your password.
             </small>
           </div>
+          <div class="alert alert-danger" *ngIf="confirmPassword.errors.minlength">
+            <small id="confirm-password-help-block" class="form-text font-weight-bold text-danger">
+              <span class="material-icons">error_outline</span>
+                Password should match.
+              </small>
+          </div>
+
+
         </div>
         
       </div>
@@ -274,6 +279,7 @@
             ngModel
             #companyWeb="ngModel"
             (change)="log(companyWeb)"
+            pattern="https?://.+"
             >
 
           <!-- Company Website Validation -->
