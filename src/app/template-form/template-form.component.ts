@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-form.component.css']
 })
 export class TemplateFormComponent implements OnInit {
+  //object for default data binding with the input value
   user = { 'fname': 'Anne', 'lname': 'Hall' };
-  //log(x){ console.log(x) };
+  
   ngOnInit() {
   }
 
   submitHandler(myForm) {
-    console.log(myForm)
-    //console.log('Input Values are: ',myForm.value)
+    console.log('Input Values are: ',myForm.value)
   }
   }
 
