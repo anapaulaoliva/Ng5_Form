@@ -4,7 +4,7 @@
   <h5>Register</h5>
 </div>
 <!-- Main Form -->
-<form #myForm="ngForm">
+<form #myForm="ngForm" (submit)="log(myForm.value)">
   <!-- Personal Info -->
 
     <!-- Name Group Form -->
@@ -25,7 +25,7 @@
             ngModel
             #firstName="ngModel"
             (change)="log(firstName)"
-            pattern="[\w]"
+            pattern="^[\w]"
             minlength="2"
             required
           />
@@ -68,7 +68,7 @@
             #lastName="ngModel"
             (change)="log(lastName)"
             minlength="3"
-            pattern="[A-Za-z]"
+            pattern="^[A-Za-z]"
             required
           />
 
@@ -359,9 +359,19 @@
         type="submit" 
         class="shadow-p3 btn text-white btn-warning rounded-pill"
         (click)="submitHandler(myForm)"
+        [disabled]="!myForm.valid"
       >
         LET'S GO
       </button>
+      <div class="alert alert-warning text-center" *ngIf="myForm.touched && !myForm.valid">
+        <span class="material-icons">error_outline</span>
+        Please fill correctly this form to submit your answers.
+      </div>
+
+      <div class="alert alert-success text-center" *ngIf="myForm.submitted">
+        <span class="material-icons">check</span>
+        Yay! We've received your information.
+      </div>
     </div>
 
 </form>
