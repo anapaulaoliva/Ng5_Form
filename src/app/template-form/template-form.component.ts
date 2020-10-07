@@ -15,6 +15,8 @@ export class TemplateFormComponent implements OnInit {
   submitHandler(myForm) {
     console.log('Input Values are: ',myForm.value)
   }
-  }
+}
+
+  //Directives can be attached to the html as property or attribute to the tags 
 
 
