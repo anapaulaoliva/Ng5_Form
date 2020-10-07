@@ -17,6 +17,3 @@ export class TemplateFormComponent implements OnInit {
   }
 }
 
-  //Directives can be attached to the html as property or attribute to the tags 
-
-
