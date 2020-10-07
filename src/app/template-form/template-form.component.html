@@ -24,13 +24,14 @@
             name="first-name"
             ngModel
             #firstName="ngModel"
+            [(ngModel)]="user.fname"
             (change)="log(firstName)"
             minlength="3"
             maxlength="10"
             pattern="^[a-zA-Z]"
             required
           />
-          
+
           <!-- Fn Validation -->
           <div *ngIf="firstName.touched && firstName.pristine">
             <div *ngIf="firstName.errors.required">
@@ -67,6 +68,7 @@
             name="last-name"
             ngModel
             #lastName="ngModel"
+            [(ngModel)]="user.lname"
             (change)="log(lastName)"
             minlength="3"
             maxlength="10"

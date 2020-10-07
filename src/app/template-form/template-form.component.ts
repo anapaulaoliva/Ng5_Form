@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-form.component.css']
 })
 export class TemplateFormComponent implements OnInit {
-
+  user = { 'fname': 'Anne', 'lname': 'Hall' };
   //log(x){ console.log(x) };
   ngOnInit() {
   }
