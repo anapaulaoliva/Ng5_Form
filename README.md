@@ -2,7 +2,7 @@
 
 ## Demo
 
-![demogif](https://user-images.githubusercontent.com/56927809/95271024-7ae95180-0802-11eb-99d7-92627a6c0850.gif)
+![demo_gif](https://user-images.githubusercontent.com/56927809/95614195-badf4d00-0a2b-11eb-8e90-e3a7c77db488.gif)
 
 ### Meaningful resources & commands
 
