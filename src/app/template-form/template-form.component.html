@@ -25,8 +25,7 @@
             ngModel
             #firstName="ngModel"
             (change)="log(firstName)"
-            minlength="2"
-            required
+            appFieldValidator
           />
 
           <!-- Fn Validation -->
@@ -61,8 +60,7 @@
             ngModel
             #lastName="ngModel"
             (change)="log(lastName)"
-            minlength="3"
-            required
+            appFieldValidator
           />
 
           <!-- Ln Validation -->
