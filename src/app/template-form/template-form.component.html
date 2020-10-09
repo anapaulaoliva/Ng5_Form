@@ -210,14 +210,6 @@
           #country="ngModel"
           (change)="log(country)"
         >
-
-        <!-- Country Validation -->
-        <div *ngIf="country.touched && country.pristine">
-          <small id="country-help-block" class="form-text text-danger">
-            Please add your country location.
-          </small>
-        </div>
-
       </div>
     </div>
 
@@ -240,14 +232,6 @@
             #companyName="ngModel"
             (change)="log(companyName)"
           >
-
-          <!-- Company Name Validation -->
-          <div *ngIf="companyName.touched && companyName.pristine">
-            <small id="company-name-help-block" class="form-text text-danger">
-              Company name is required.
-            </small>
-          </div>
-
         </div>
       </div>
 
@@ -267,14 +251,6 @@
             #companyWeb="ngModel"
             (change)="log(companyWeb)"
           >
-
-          <!-- Company Website Validation -->
-          <div *ngIf="companyWeb.touched && companyWeb.pristine">
-            <small id="company-website-help-block" class="form-text text-danger">
-              Company website is required.
-            </small>
-          </div>
-
         </div>
       </div>
       
@@ -316,6 +292,7 @@
         ngModel
         #ageCheck="ngModel"
         (change)="log(ageCheck)"
+        required
       >
       <label class="form-age-check" for="age-check">
         Age acknowledgment for innovation submission. Check to confirm that you are at least 18 years of age.
