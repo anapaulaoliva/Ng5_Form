@@ -18,7 +18,7 @@
 - [Angular Forms Guide](https://angular.io/guide/forms-overview)
 - [Material Angular](https://v5.material.angular.io/)
 
-- [Bootstrap] (https://getbootstrap.com/docs/4.3/components/forms/)
+- [Bootstrap](https://getbootstrap.com/docs/4.3/components/forms/)
 
 - [Material Icons](https://material.io/resources/icons/?style=baseline)
 - [Material Design](https://google.github.io/material-design-icons/)
